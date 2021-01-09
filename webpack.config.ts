@@ -1,10 +1,10 @@
-const webpack = require("webpack");
-const { resolve } = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+import { Configuration } from "webpack";
+import { resolve } from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 
-module.exports = {
+const config: Configuration = {
   entry: {
     main: resolve(__dirname, "./src/index.tsx"),
   },
@@ -49,8 +49,6 @@ module.exports = {
     filename: "[name].bundle.js",
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.SourceMapDevToolPlugin({}),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
@@ -58,3 +56,5 @@ module.exports = {
     }),
   ],
 };
+
+export default config;
