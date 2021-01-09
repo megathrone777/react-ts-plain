@@ -6,6 +6,7 @@ import { StyledWrapper } from "./styled";
 
 const App: React.FC = () => (
   <ThemeProvider theme={theme}>
+    <GlobalStyle />
     <StyledWrapper>App</StyledWrapper>
   </ThemeProvider>
 );
